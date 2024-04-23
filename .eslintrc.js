@@ -11,6 +11,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'no-unused-vars': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'prettier/prettier': [
