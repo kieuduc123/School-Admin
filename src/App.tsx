@@ -29,7 +29,7 @@ function App() {
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<ECommerce />} />
             {coreRoutes.map((route, index) => {
-              const Component = route.component // Assume all routes have components for now
+              const Component = route.component
               return Component && <Route key={index} path={route.path} element={<Component />} />
             })}
           </Route>

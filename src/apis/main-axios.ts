@@ -1,8 +1,7 @@
 import axios from 'axios'
-// import { getCookie, setCookie } from '@/utils/storage/cookie-storage'
 import { getCookie, setCookie } from '../utils/storage/cookie-storage'
 import { Storage } from 'src/constants/storage'
-// import { Storage } from '../constants/storage'
+
 const baseURL = 'http://113.178.35.92:4869'
 
 const mainAxios = axios.create({
