@@ -23,7 +23,7 @@ function App() {
       <Toaster position="top-right" />
       <Routes>
         <Route path="*" element={<NotFound />} />
-        <Route path="/sign-in" element={<SignIn />} />
+        {!token ? <Route path="/sign-in" element={<SignIn />} /> : <Route path="*" element={<NotFound />} />}
         {token && (
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<ECommerce />} />
