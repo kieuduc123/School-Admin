@@ -1,4 +1,3 @@
-// App.tsx
 import React, { Suspense, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
