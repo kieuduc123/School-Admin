@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Form, Input, Button, Checkbox, notification } from 'antd'
+import { Form, Input, Button, notification } from 'antd'
 import { setCookie } from '../../utils/storage/cookie-storage'
 import { Storage } from '../../constants/storage'
 import { useAppDispatch } from '../../redux/hooks'
