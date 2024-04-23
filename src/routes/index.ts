@@ -3,7 +3,7 @@ import { FC, LazyExoticComponent, lazy } from 'react'
 type LazyComponent = LazyExoticComponent<FC<any>>
 
 interface RouteConfig {
-  path: string
+  path?: string
   component?: LazyComponent
   title?: string
 }

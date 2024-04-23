@@ -4,11 +4,16 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
      "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+     "plugin:jsx-a11y/recommended",
+     "plugin:security/recommended",
+     "plugin:import/errors",
+  "plugin:import/warnings"
   ],
+  
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -25,15 +30,18 @@
     "node": true
   },
   "plugins": [
+    "import",
+    "security",
+     "jsx-a11y",
     "@typescript-eslint",
     "react",
     "react-hooks",
     "prettier"
   ],
   "rules": {
-     "react/react-in-jsx-scope": "off",
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "error",
     "@typescript-eslint/no-var-requires": "error",
     "no-unused-vars": "warn",  
