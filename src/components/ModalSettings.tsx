@@ -7,7 +7,7 @@ interface Props {
   onSubmit: any
   defaultValue: any
 }
-export const Modal = (props: { closeModalany: any; onSubmit: any; defaultValue: any }) => {
+export const Modal: React.FC<Props> = (props) => {
   const fields = Object.keys(Object.values(dataJSON)[0]).filter((item: any) => !item.startsWith('delta_'))
   const { closeModalany, onSubmit, defaultValue } = props
   const [formState, setFormState] = useState(
@@ -91,7 +91,7 @@ export const Modal = (props: { closeModalany: any; onSubmit: any; defaultValue: 
             <div className="grid grid-cols-3 gap-5 justify-normal">
               <div className="w-full col-span-3 form-group">
                 <label className="block mb-3 text-sm font-medium text-black dark:text-white" htmlFor="id">
-                  Bond ID (Input "ALL" to track all bonds with paramaters below)
+                  Bond ID (Input ALL to track all bonds with paramaters below)
                 </label>
                 <input
                   className="w-full rounded border border-stroke bg-gray py-3 pl-3 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
