@@ -7,7 +7,7 @@ interface Props {
   onSubmit: any
   defaultValue: any
 }
-export const Modal = (props) => {
+export const Modal = (props: { closeModalany: any; onSubmit: any; defaultValue: any }) => {
   const fields = Object.keys(Object.values(dataJSON)[0]).filter((item: any) => !item.startsWith('delta_'))
   const { closeModalany, onSubmit, defaultValue } = props
   const [formState, setFormState] = useState(
@@ -21,30 +21,30 @@ export const Modal = (props) => {
   )
   const [errors, setErrors] = useState<string[]>([])
 
-  const validateForm = () => {
-    if (formState.id && formState.value) {
-      setErrors([])
-      return true
-    } else {
-      const errorFields = []
-      for (const [key, value] of Object.entries(formState)) {
-        console.log(key)
-        console.log(value)
-        if (!value) {
-          errorFields.push(key == 'id' ? 'Bond ID' : key)
-        } else {
-          if (key == 'id') {
-            if (!(Object.keys(dataJSON).includes(value) || value == 'ALL')) {
-              errorFields.push('INVALID_ID_' + value)
-            }
-          }
-        }
-      }
-      console.log(errorFields)
-      setErrors(errorFields)
-      return false
-    }
-  }
+  // const validateForm = () => {
+  //   if (formState.id && formState.value) {
+  //     setErrors([])
+  //     return true
+  //   } else {
+  //     const errorFields = []
+  //     for (const [key, value] of Object.entries(formState)) {
+  //       console.log(key)
+  //       console.log(value)
+  //       if (!value) {
+  //         errorFields.push(key == 'id' ? 'Bond ID' : key)
+  //       } else {
+  //         if (key == 'id') {
+  //           if (!(Object.keys(dataJSON).includes(value) || value == 'ALL')) {
+  //             errorFields.push('INVALID_ID_' + value)
+  //           }
+  //         }
+  //       }
+  //     }
+  //     console.log(errorFields)
+  //     setErrors(errorFields)
+  //     return false
+  //   }
+  // }
 
   const handleChange = (e: { target: { name: string; value: string } }) => {
     console.log(formState.criterion)
@@ -63,29 +63,29 @@ export const Modal = (props) => {
     setFormState({ ...formState, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  // const handleSubmit = (e: { preventDefault: () => void }) => {
+  //   e.preventDefault()
 
-    if (!validateForm()) return
+  //   if (!validateForm()) return
 
-    onSubmit(formState)
+  //   onSubmit(formState)
 
-    closeModal()
-  }
+  //   closeModal()
+  // }
 
   return (
     <div
       className="fixed z-50 flex modal-container top-25 bottom-5 "
-      onClick={(e) => {
-        if (e.target.className === 'modal-container') closeModal()
-      }}
+      // onClick={(e) => {
+      //   if (e.target.className === 'modal-container') closeModal()
+      // }}
     >
       <div className="overflow-auto bg-white border rounded-sm modal border-stroke shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="py-4 border-b border-stroke px-7 dark:border-strokedark">
           <div className="flex justify-end w-full">
-            <strong className="text-xl cursor-pointer align-center " onClick={closeModal}>
+            {/* <strong className="text-xl cursor-pointer align-center " onClick={closeModal}>
               &times;
-            </strong>
+            </strong> */}
           </div>
           <form>
             <div className="grid grid-cols-3 gap-5 justify-normal">
@@ -244,14 +244,14 @@ export const Modal = (props) => {
               </div>
             )}
 
-            <br></br>
+            {/* <br></br>
             <button
               className="flex justify-center px-6 py-2 font-medium rounded btn bg-primary text-gray hover:shadow-1"
               type="submit"
               onClick={handleSubmit}
             >
               Submit
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

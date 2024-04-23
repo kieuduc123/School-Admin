@@ -1,19 +1,18 @@
-import React, { Suspense, lazy, useEffect } from 'react'
+// App.tsx
+import React, { Suspense, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
-import Loader from './common/Loader'
-import routes from './routes'
 import { getCookie } from './utils/storage/cookie-storage'
-import { Storage } from './constants/storage'
-
-const DefaultLayout = lazy(() => import('./layout/DefaultLayout'))
-const NotFound = lazy(() => import('./pages/404page'))
-const SignIn = lazy(() => import('./pages/Authentication/SignIn'))
-const ECommerce = lazy(() => import('./pages/Dashboard/ECommerce'))
-
+import Loader from './common/Loader'
+import NotFound from './pages/404page'
+import SignIn from './pages/Authentication/SignIn'
+import DefaultLayout from './layout/DefaultLayout'
+import ECommerce from './pages/Dashboard/ECommerce'
+import coreRoutes from './routes'
 function App() {
   const navigate = useNavigate()
-  const token = getCookie(Storage.token)
+  const token = getCookie('token')
+
   useEffect(() => {
     if (!token) {
       navigate('/sign-in')
@@ -22,19 +21,19 @@ function App() {
 
   return (
     <Suspense fallback={<Loader />}>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-right" />
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/sign-in" element={<SignIn />} />
-        {token ? (
+        {token && (
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<ECommerce />} />
-            {routes.map((route, index) => {
-              const { path, component: Component } = route
-              return <Route key={index} path={path} element={<Component />} />
+            {coreRoutes.map((route, index) => {
+              const Component = route.component // Assume all routes have components for now
+              return Component && <Route key={index} path={route.path} element={<Component />} />
             })}
           </Route>
-        ) : null}
+        )}
       </Routes>
     </Suspense>
   )

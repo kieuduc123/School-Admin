@@ -1,4 +1,4 @@
-import { Storage } from '$/src/constants/storage'
+import { Storage } from 'src/constants/storage'
 
 const getPrefixKey = (key: string) => `${Storage.prefix}-${key}`
 
