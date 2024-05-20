@@ -3,7 +3,6 @@ import { Col, Row, Select, Form, Table, Breadcrumb } from 'antd'
 import mainAxios from '../../apis/main-axios'
 import Loader from '../../common/Loader'
 import StudentAdd from './StudenAdd'
-import { error } from 'console'
 // import { StudentData } from '@/types/response'
 
 interface Student {
