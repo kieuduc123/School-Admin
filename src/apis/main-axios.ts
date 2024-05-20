@@ -1,9 +1,8 @@
+import axios from 'axios'
 import { getCookie, setCookie } from '../utils/storage/cookie-storage'
 import { Storage } from 'src/constants/storage'
-import axios from 'axios'
 
-const baseURL = 'http://113.178.35.92:4869'
-
+const baseURL = process.env.REACT_APP_BASE_API_URL
 const mainAxios = axios.create({
   baseURL,
   headers: { 'Content-Type': 'application/json' },

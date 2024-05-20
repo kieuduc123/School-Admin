@@ -339,10 +339,7 @@ export default function Teachers() {
       </Row>
       <Table dataSource={teachers} rowKey="id">
         <Table.Column title="Số hiệu" dataIndex="officerNumber" />
-        <Table.Column
-          title="Họ và tên"
-          render={(text, record: TeacherData) => `${record.firstname} ${record.lastname}`}
-        />
+        <Table.Column title="Họ và tên" render={(record: TeacherData) => `${record.firstname} ${record.lastname}`} />
         <Table.Column title="Ngày sinh" dataIndex="birthday" />
         <Table.Column title="Giới tính" dataIndex="gender" />
         <Table.Column title="Địa chỉ" dataIndex="address" />
