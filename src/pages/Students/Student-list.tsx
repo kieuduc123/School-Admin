@@ -26,7 +26,7 @@ export default function Students() {
     ;(async () => {
       try {
         setLoading(!loading)
-        const response = await mainAxios.get<Student[]>('/api/v1/student')
+        const response = await mainAxios.get<Student[]>('/api/v1/student/get-student-year-info-by')
         const studentsData: Student[] = response.data
         const studentsGroupedByCode = studentsData.reduce(
           (grouped: { [x: string]: any[] }, student: { studentCode: string | number }) => {

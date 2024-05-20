@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../images/logo/logo-icon.svg'
+// import Logo from '../images/logo/logo-icon.svg'
+
 import DarkModeSwitcher from './DarkModeSwitcher'
 import DropdownUser from './DropdownUser'
 
@@ -8,9 +9,9 @@ const Header = (props: { sidebarOpen: string | boolean | undefined; setSidebarOp
   return (
     <header
       style={{ height: '60px' }}
-      className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none"
+      className="sticky top-0 flex w-full bg-white z-999 drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none"
     >
-      <div className="flex flex-grow items-center justify-between py-4 px-4 shadow-2 md:px-6 2xl:px-11">
+      <div className="flex items-center justify-between flex-grow px-4 py-4 shadow-2 md:px-6 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           {/* <!-- Hamburger Toggle BTN --> */}
           <button
@@ -22,7 +23,7 @@ const Header = (props: { sidebarOpen: string | boolean | undefined; setSidebarOp
             className="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
           >
             <span className="relative block h-5.5 w-5.5 cursor-pointer">
-              <span className="du-block absolute right-0 h-full w-full">
+              <span className="absolute right-0 w-full h-full du-block">
                 <span
                   className={`relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${
                     !props.sidebarOpen && '!w-full delay-300'
@@ -39,7 +40,7 @@ const Header = (props: { sidebarOpen: string | boolean | undefined; setSidebarOp
                   }`}
                 ></span>
               </span>
-              <span className="absolute right-0 h-full w-full rotate-45">
+              <span className="absolute right-0 w-full h-full rotate-45">
                 <span
                   className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white ${
                     !props.sidebarOpen && '!h-0 !delay-[0]'
@@ -55,15 +56,15 @@ const Header = (props: { sidebarOpen: string | boolean | undefined; setSidebarOp
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" to="/">
-            <img src={Logo} alt="Logo" />
+          <Link className="flex-shrink-0 block lg:hidden" to="/">
+            {/* <img src={Logo} alt="Logo" /> */}
           </Link>
         </div>
 
         <div className="hidden sm:block">
           <form action="https://formbold.com/s/unique_form_id" method="POST">
             <div className="relative">
-              <button className="absolute top-1/2 left-0 -translate-y-1/2">
+              <button className="absolute left-0 -translate-y-1/2 top-1/2">
                 <svg
                   className="fill-body hover:fill-primary dark:fill-bodydark dark:hover:fill-primary"
                   width="20"
@@ -90,7 +91,7 @@ const Header = (props: { sidebarOpen: string | boolean | undefined; setSidebarOp
               <input
                 type="text"
                 placeholder="Type to search..."
-                className="w-full bg-transparent pr-4 pl-9 focus:outline-none"
+                className="w-full pr-4 bg-transparent pl-9 focus:outline-none"
               />
             </div>
           </form>

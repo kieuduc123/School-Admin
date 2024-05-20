@@ -1,17 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
 import { notification } from 'antd'
-import { deleteAllCookies, deleteCookie } from '../utils/storage/cookie-storage'
-import { useAppSelector } from '../redux/hooks'
+import { getLocalStorageItem } from 'src/utils/storage/local-storage'
+import { Storage } from 'src/constants/storage'
+import { deleteAllCookies } from 'src/utils/storage/cookie-storage'
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const navigate = useNavigate()
   const trigger = useRef<any>(null)
   const dropdown = useRef<any>(null)
-  const userData = useAppSelector((state) => state?.isLogin?.isLogin)
-  console.log(userData)
+  const userData = JSON?.parse(getLocalStorageItem(Storage.user) || '')
 
   // close on click outside
   useEffect(() => {
@@ -36,7 +35,6 @@ const DropdownUser = () => {
   const handleChange = () => {
     // const token = getCookie(Storage.token);
     deleteAllCookies()
-    console.log(deleteCookie)
     navigate('/sign-in')
     notification.success({
       message: 'Logout success',
@@ -53,7 +51,12 @@ const DropdownUser = () => {
         </span>
 
         <span className="w-12 h-12 rounded-full">
-          <img className="w-12 h-12 rounded-full" src={userData?.avatar} alt={userData?.email} />
+          <img
+            className="w-12 h-12 rounded-full"
+            src="https://5.imimg.com/data5/SELLER/Default/2023/3/294997220/ZX/OC/BE/3365461/acrylic-admin-office-door-sign-board.jpg"
+            // src={userData?.avatar}
+            alt={userData?.email}
+          />
         </span>
 
         <svg

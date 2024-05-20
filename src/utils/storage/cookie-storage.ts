@@ -1,5 +1,7 @@
 import Cookies from 'js-cookie'
+// import Storage from 'src/constants/storage'
 import { Storage } from 'src/constants/storage'
+
 const getPrefixKey = (key: string) => `${Storage.prefix}-${key}`
 
 export const setCookie = (cname: string, cvalue: string, exdays = 30) => {
